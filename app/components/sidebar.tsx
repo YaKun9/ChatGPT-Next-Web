@@ -159,7 +159,7 @@ export function SideBar(props: { className?: string }) {
         </div>
         <div className={styles["sidebar-sub-title"]}>
           <PinIcon />
-          无需登录，会定时补充免费额度，获得的赞助用于运维开支。
+          多款模型免登录使用，获得的赞助用于运维开支。
         </div>
         <div className={styles["sidebar-sub-title"]}>
           <PinIcon />
@@ -171,14 +171,14 @@ export function SideBar(props: { className?: string }) {
         <div className={styles["sidebar-sub-title"]}>
           <PinIcon />
           购买令牌可以获得专属额度和解锁更多模型。
-          <a href="https://oneapi.snat.top" target="_blank">
+          <a href="https://u.ikunai.top" target="_blank">
             前往兑换
           </a>
         </div>
         <div className={styles["sidebar-sub-title"]}>
           <PinIcon />
           常见问题答疑
-          <a href="https://oneapi.snat.top/about" target="_blank">
+          <a href="https://u.ikunai.top/about" target="_blank">
             前往查看
           </a>
         </div>
