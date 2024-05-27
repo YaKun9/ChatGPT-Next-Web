@@ -4,7 +4,7 @@ import styles from "./home.module.scss";
 
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
-import GithubIcon from "../icons/github.svg";
+import LoginIcon from "../icons/login.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import PinIcon from "../icons/pin.svg";
@@ -239,8 +239,8 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-              <IconButton icon={<GithubIcon />} shadow />
+            <a href="https://u.ikunai.top/login" target="_blank" rel="noopener noreferrer" title="登录控制台">
+              <IconButton icon={<LoginIcon />} shadow />
             </a>
           </div>
         </div>
