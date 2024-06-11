@@ -1,0 +1,23 @@
+name: Docker Push To Nexus3
+
+on:
+  push:
+    branches:
+      - mine
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Login to Nexus Docker Registry
+      run: docker login -u ${{ secrets.NEXUS_USERNAME }} -p ${{ secrets.NEXUS_PASSWORD }} ${{ secrets.NEXUS_DOMAIN }}
+
+    - name: Build Docker image with cache
+      run: docker build -t ${{ secrets.NEXUS_DOMAIN }}/yakun9/chatgpt-next-web:latest .
+
+    - name: Push Docker image to Nexus
+      run: docker push ${{ secrets.NEXUS_DOMAIN }}/yakun9/chatgpt-next-web:latest
