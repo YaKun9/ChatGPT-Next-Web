@@ -1,6 +1,7 @@
 import {
   ApiPath,
   DEFAULT_API_HOST,
+  GoogleSafetySettingsThreshold,
   ServiceProvider,
   StoreKey,
 } from "../constant";
@@ -38,7 +39,13 @@ const DEFAULT_ALIBABA_URL = isApp
   ? DEFAULT_API_HOST + "/api/proxy/alibaba"
   : ApiPath.Alibaba;
 
-console.log("DEFAULT_ANTHROPIC_URL", DEFAULT_ANTHROPIC_URL);
+const DEFAULT_MOONSHOT_URL = isApp
+  ? DEFAULT_API_HOST + "/api/proxy/moonshot"
+  : ApiPath.Moonshot;
+
+const DEFAULT_STABILITY_URL = isApp
+  ? DEFAULT_API_HOST + "/api/proxy/stability"
+  : ApiPath.Stability;
 
 const DEFAULT_ACCESS_STATE = {
   accessCode: "",
@@ -59,6 +66,7 @@ const DEFAULT_ACCESS_STATE = {
   googleUrl: DEFAULT_GOOGLE_URL,
   googleApiKey: "",
   googleApiVersion: "v1",
+  googleSafetySettings: GoogleSafetySettingsThreshold.BLOCK_ONLY_HIGH,
 
   // anthropic
   anthropicUrl: DEFAULT_ANTHROPIC_URL,
@@ -77,6 +85,14 @@ const DEFAULT_ACCESS_STATE = {
   // alibaba
   alibabaUrl: DEFAULT_ALIBABA_URL,
   alibabaApiKey: "",
+
+  // moonshot
+  moonshotUrl: DEFAULT_MOONSHOT_URL,
+  moonshotApiKey: "",
+
+  //stability
+  stabilityUrl: DEFAULT_STABILITY_URL,
+  stabilityApiKey: "",
 
   // server config
   needCode: true,
@@ -126,6 +142,10 @@ export const useAccessStore = createPersistStore(
       return ensure(get(), ["alibabaApiKey"]);
     },
 
+    isValidMoonshot() {
+      return ensure(get(), ["moonshotApiKey"]);
+    },
+
     isAuthorized() {
       this.fetch();
 
@@ -138,6 +158,7 @@ export const useAccessStore = createPersistStore(
         this.isValidBaidu() ||
         this.isValidByteDance() ||
         this.isValidAlibaba() ||
+        this.isValidMoonshot() ||
         !this.enabledAccessControl() ||
         (this.enabledAccessControl() && ensure(get(), ["accessCode"]))
       );
