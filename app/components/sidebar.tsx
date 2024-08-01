@@ -4,15 +4,16 @@ import styles from "./home.module.scss";
 
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
-import LoginIcon from "../icons/login.svg";
+import GithubIcon from "../icons/github.svg";
 import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
-import PinIcon from "../icons/pin.svg";
+import CloseIcon from "../icons/close.svg";
 import DeleteIcon from "../icons/delete.svg";
 import MaskIcon from "../icons/mask.svg";
 import DragIcon from "../icons/drag.svg";
 import DiscoveryIcon from "../icons/discovery.svg";
-
+import PinIcon from "../icons/pin.svg";
+import LoginIcon from "../icons/login.svg";
 import Locale from "../locales";
 
 import { useAppConfig, useChatStore } from "../store";
@@ -202,8 +203,6 @@ export function SideBarHeader(props: {
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
         </div>
-        <div className={styles["sidebar-sub-title"]}>{subTitle}</div>
-        <div className={styles["sidebar-logo"] + " no-dark"}>{logo}</div>
       </div>
       {children}
     </Fragment>
@@ -281,7 +280,7 @@ export function SideBar(props: { className?: string }) {
           <Selector
             items={[
               {
-                title: "👇 Please select the plugin you need to use",
+                title: "👇 请选择您需要使用的插件",
                 value: "-",
                 disable: true,
               },
@@ -307,33 +306,38 @@ export function SideBar(props: { className?: string }) {
         }}
       >
         <ChatList narrow={shouldNarrow} />
-
-      </div>
-
-      <div className={styles["sidebar-tail"]}>
-        <div className={styles["sidebar-actions"]}>
-          <div className={styles["sidebar-action"] + " " + styles.mobile}>
-            <IconButton
-              icon={<DeleteIcon />}
-              onClick={async () => {
-                if (await showConfirm(Locale.Home.DeleteChat)) {
-                  chatStore.deleteSession(chatStore.currentSessionIndex);
-                }
-              }}
-            />
-          </div>
-          <div className={styles["sidebar-action"]}>
-            <Link to={Path.Settings}>
-              <IconButton icon={<SettingsIcon />} shadow />
-            </Link>
-          </div>
-          <div className={styles["sidebar-action"]}>
-            <a href="https://u.ikunai.top/login" target="_blank" rel="noopener noreferrer" title="登录控制台">
-              <IconButton icon={<LoginIcon />} shadow />
-            </a>
-          </div>
-        </div>
-        <div>
+      </SideBarBody>
+      <SideBarTail
+        primaryAction={
+          <>
+            <div className={styles["sidebar-action"] + " " + styles.mobile}>
+              <IconButton
+                icon={<DeleteIcon />}
+                onClick={async () => {
+                  if (await showConfirm(Locale.Home.DeleteChat)) {
+                    chatStore.deleteSession(chatStore.currentSessionIndex);
+                  }
+                }}
+              />
+            </div>
+            <div className={styles["sidebar-action"]}>
+              <Link to={Path.Settings}>
+                <IconButton icon={<SettingsIcon />} shadow />
+              </Link>
+            </div>
+            <div className={styles["sidebar-action"]}>
+              <a
+                href="https://u.ikunai.top/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="登录控制台"
+              >
+                <IconButton icon={<LoginIcon />} shadow />
+              </a>
+            </div>
+          </>
+        }
+        secondaryAction={
           <IconButton
             icon={<AddIcon />}
             text={shouldNarrow ? undefined : Locale.Home.NewChat}
