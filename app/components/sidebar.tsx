@@ -12,7 +12,8 @@ import DeleteIcon from "../icons/delete.svg";
 import MaskIcon from "../icons/mask.svg";
 import DragIcon from "../icons/drag.svg";
 import DiscoveryIcon from "../icons/discovery.svg";
-
+import PinIcon from "../icons/pin.svg";
+import LoginIcon from "../icons/login.svg";
 import Locale from "../locales";
 
 import { useAppConfig, useChatStore } from "../store";
@@ -171,13 +172,37 @@ export function SideBarHeader(props: {
   return (
     <Fragment>
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
-        <div className={styles["sidebar-title-container"]}>
-          <div className={styles["sidebar-title"]} data-tauri-drag-region>
-            {title}
-          </div>
-          <div className={styles["sidebar-sub-title"]}>{subTitle}</div>
+        <div className={styles["sidebar-title"]} data-tauri-drag-region>
+          IKunAI ChatGPT
         </div>
-        <div className={styles["sidebar-logo"] + " no-dark"}>{logo}</div>
+        <div className={styles["sidebar-sub-title"]}>
+          <PinIcon />
+          多款模型免登录使用，获得的赞助用于运维开支。
+        </div>
+        <div className={styles["sidebar-sub-title"]}>
+          <PinIcon />
+          你可以通过爱发电赞助，感谢支持。
+          <a href="https://afdian.net/a/ikunai" target="_blank">
+            前往爱发电
+          </a>{" "}
+        </div>
+        <div className={styles["sidebar-sub-title"]}>
+          <PinIcon />
+          购买令牌可以获得专属额度和解锁更多模型。
+          <a href="https://u.ikunai.top" target="_blank">
+            前往兑换
+          </a>
+        </div>
+        <div className={styles["sidebar-sub-title"]}>
+          <PinIcon />
+          常见问题答疑
+          <a href="https://u.ikunai.top/about" target="_blank">
+            前往查看
+          </a>
+        </div>
+        <div className={styles["sidebar-logo"] + " no-dark"}>
+          <ChatGptIcon />
+        </div>
       </div>
       {children}
     </Fragment>
@@ -255,7 +280,7 @@ export function SideBar(props: { className?: string }) {
           <Selector
             items={[
               {
-                title: "👇 Please select the plugin you need to use",
+                title: "👇 请选择您需要使用的插件",
                 value: "-",
                 disable: true,
               },
@@ -305,12 +330,13 @@ export function SideBar(props: { className?: string }) {
               </Link>
             </div>
             <div className={styles["sidebar-action"]}>
-              <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-                <IconButton
-                  aria={Locale.Export.MessageFromChatGPT}
-                  icon={<GithubIcon />}
-                  shadow
-                />
+              <a
+                href="https://u.ikunai.top/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="登录控制台"
+              >
+                <IconButton icon={<LoginIcon />} shadow />
               </a>
             </div>
           </>
