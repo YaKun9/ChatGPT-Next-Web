@@ -172,33 +172,35 @@ export function SideBarHeader(props: {
   return (
     <Fragment>
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
-        <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          IKunAI ChatGPT
-        </div>
-        <div className={styles["sidebar-sub-title"]}>
-          <PinIcon />
-          多款模型免登录使用，获得的赞助用于运维开支。
-        </div>
-        <div className={styles["sidebar-sub-title"]}>
-          <PinIcon />
-          你可以通过爱发电赞助，感谢支持。
-          <a href="https://afdian.net/a/ikunai" target="_blank">
-            前往爱发电
-          </a>{" "}
-        </div>
-        <div className={styles["sidebar-sub-title"]}>
-          <PinIcon />
-          购买令牌可以获得专属额度和解锁更多模型。
-          <a href="https://u.ikunai.top" target="_blank">
-            前往兑换
-          </a>
-        </div>
-        <div className={styles["sidebar-sub-title"]}>
-          <PinIcon />
-          常见问题答疑
-          <a href="https://u.ikunai.top/about" target="_blank">
-            前往查看
-          </a>
+        <div className={styles["sidebar-title-container"]}>
+          <div className={styles["sidebar-title"]} data-tauri-drag-region>
+            IKunAI ChatGPT
+          </div>
+          <div className={styles["sidebar-sub-title"]}>
+            <PinIcon />
+            多款模型免登录使用，获得的赞助用于运维开支。
+          </div>
+          <div className={styles["sidebar-sub-title"]}>
+            <PinIcon />
+            你可以通过爱发电赞助，感谢支持。
+            <a href="https://afdian.net/a/ikunai" target="_blank">
+              前往爱发电
+            </a>{" "}
+          </div>
+          <div className={styles["sidebar-sub-title"]}>
+            <PinIcon />
+            购买令牌可以获得专属额度和解锁更多模型。
+            <a href="https://u.ikunai.top" target="_blank">
+              前往兑换
+            </a>
+          </div>
+          <div className={styles["sidebar-sub-title"]}>
+            <PinIcon />
+            常见问题答疑
+            <a href="https://u.ikunai.top/about" target="_blank">
+              前往查看
+            </a>
+          </div>
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
