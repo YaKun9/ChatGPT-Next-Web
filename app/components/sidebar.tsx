@@ -322,7 +322,11 @@ export function SideBar(props: { className?: string }) {
             </div>
             <div className={styles["sidebar-action"]}>
               <Link to={Path.Settings}>
-                <IconButton icon={<SettingsIcon />} shadow />
+                <IconButton
+                  aria={Locale.Settings.Title}
+                  icon={<SettingsIcon />}
+                  shadow
+                />
               </Link>
             </div>
             <div className={styles["sidebar-action"]}>
