@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - m3
+  workflow_dispatch:
 
 jobs:
   build-and-push:
