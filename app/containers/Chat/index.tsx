@@ -74,10 +74,11 @@ export default MenuLayout(function SessionList(props) {
           data-tauri-drag-region
         >
           <div className="">
-            <NextChatTitle />
+            {/* <NextChatTitle /> */}
+            IKunAI ChatGPT
           </div>
           <div
-            className=" cursor-pointer"
+            className="cursor-pointer "
             onClick={() => {
               if (config.dontShowMaskSplashScreen) {
                 chatStore.newSession();
@@ -93,7 +94,9 @@ export default MenuLayout(function SessionList(props) {
         <div
           className={`pb-3 text-sm sm:text-sm-mobile text-text-chat-header-subtitle`}
         >
-          Build your own AI assistant.
+          <a href="https://u.ikunai.top" target="_blank">
+            点此获取不限问答频率令牌
+          </a>
         </div>
       </div>
 
