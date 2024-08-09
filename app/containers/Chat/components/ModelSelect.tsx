@@ -80,9 +80,11 @@ const ModelSelect = () => {
           }}
           ref={currentModel === o.name ? selectedItemRef : undefined}
         >
-          <div className={`flex-1 text-text-select`}>{o.name}</div>
+          <div className={`text-text-select`}>{o.displayName}</div>
           <div
-            className={currentModel === o.name ? "opacity-100" : "opacity-0"}
+            className={
+              currentModel === o.displayName ? "opacity-100" : "opacity-0"
+            }
           >
             <Selected />
           </div>
@@ -125,7 +127,7 @@ const ModelSelect = () => {
   return (
     <Popover
       content={
-        <div className="max-h-chat-actions-select-model-popover overflow-y-auto">
+        <div className="overflow-y-auto max-h-chat-actions-select-model-popover">
           {content({ close: () => {} })}
         </div>
       }
@@ -134,7 +136,7 @@ const ModelSelect = () => {
       placement={
         position?.poi.relativePosition[1] !== Orientation.bottom ? "lb" : "lt"
       }
-      popoverClassName="border border-select-popover rounded-lg shadow-select-popover-shadow w-actions-popover  bg-model-select-popover-panel w-[280px]"
+      popoverClassName="border border-select-popover rounded-lg shadow-select-popover-shadow w-actions-popover  bg-model-select-popover-panel w-[auto]"
       onShow={(e) => {
         if (e) {
           autoScrollToSelectedModal();
