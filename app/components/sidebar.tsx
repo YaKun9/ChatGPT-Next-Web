@@ -15,8 +15,7 @@ import DiscoveryIcon from "../icons/discovery.svg";
 import PinIcon from "../icons/pin.svg";
 import LoginIcon from "../icons/login.svg";
 import Locale from "../locales";
-
-import { useAppConfig, useChatStore } from "../store";
+import { useAppConfig, useChatStore, useAccessStore } from "../store";
 
 import {
   DEFAULT_SIDEBAR_WIDTH,
@@ -244,7 +243,7 @@ export function SideBar(props: { className?: string }) {
   const navigate = useNavigate();
   const config = useAppConfig();
   const chatStore = useChatStore();
-
+  const accessStore = useAccessStore();
   return (
     <SideBarContainer
       onDragStart={onDragStart}
@@ -359,6 +358,23 @@ export function SideBar(props: { className?: string }) {
           />
         }
       />
+      {accessStore.recordNumber && (
+        <SideBarTail
+          primaryAction={
+            <>
+              <div className={styles["sidebar-action"]}>
+                <a
+                  href="https://beian.miit.gov.cn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {accessStore.recordNumber}
+                </a>
+              </div>
+            </>
+          }
+        ></SideBarTail>
+      )}
     </SideBarContainer>
   );
 }

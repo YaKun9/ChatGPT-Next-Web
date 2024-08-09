@@ -120,6 +120,8 @@ const DEFAULT_ACCESS_STATE = {
   disableFastLink: false,
   customModels: "",
   defaultModel: "",
+
+  recordNumber: "",
 };
 
 export const useAccessStore = createPersistStore(
