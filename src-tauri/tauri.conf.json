@@ -8,8 +8,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "version": "2.15.1"
-    "productName": "IKunAI ChatGPT",
+    "version": "2.15.1",
+    "productName": "IKunAI ChatGPT"
   },
   "tauri": {
     "allowlist": {
