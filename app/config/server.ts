@@ -77,6 +77,7 @@ declare global {
 
       // custom template for preprocessing user input
       DEFAULT_INPUT_TEMPLATE?: string;
+      RECORD_NUMBER?: string;
     }
   }
 }
@@ -163,7 +164,7 @@ export const getServerSideConfig = () => {
     process.env.WHITE_WEBDAV_ENDPOINTS ?? ""
   ).split(",");
 
-  return {
+  const config = {
     baseUrl: process.env.BASE_URL,
     apiKey: getApiKey(process.env.OPENAI_API_KEY),
     openaiOrgId: process.env.OPENAI_ORG_ID,
@@ -239,5 +240,7 @@ export const getServerSideConfig = () => {
     customModels,
     defaultModel,
     allowedWebDavEndpoints,
+    recordNumber: process.env.RECORD_NUMBER,
   };
+  return config;
 };

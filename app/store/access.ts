@@ -116,9 +116,9 @@ const DEFAULT_ACCESS_STATE = {
   disableFastLink: false,
   customModels: "",
   defaultModel: "",
-
   // tts config
   edgeTTSVoiceName: "zh-CN-YunxiNeural",
+  recordNumber: "",
 };
 
 export const useAccessStore = createPersistStore(
