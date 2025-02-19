@@ -90,8 +90,8 @@ declare global {
 
       // custom template for preprocessing user input
       DEFAULT_INPUT_TEMPLATE?: string;
-
       ENABLE_MCP?: string; // enable mcp functionality
+      RECORD_NUMBER?: string;
     }
   }
 }
@@ -175,7 +175,7 @@ export const getServerSideConfig = () => {
     process.env.WHITE_WEBDAV_ENDPOINTS ?? ""
   ).split(",");
 
-  return {
+  const config = {
     baseUrl: process.env.BASE_URL,
     apiKey: getApiKey(process.env.OPENAI_API_KEY),
     openaiOrgId: process.env.OPENAI_ORG_ID,
@@ -265,5 +265,7 @@ export const getServerSideConfig = () => {
     visionModels,
     allowedWebDavEndpoints,
     enableMcp: process.env.ENABLE_MCP === "true",
+    recordNumber: process.env.RECORD_NUMBER,
   };
+  return config;
 };

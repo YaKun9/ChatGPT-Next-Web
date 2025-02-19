@@ -8,8 +8,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "NextChat",
-    "version": "2.15.8"
+    "version": "9.99.99",
+    "productName": "IKunAI ChatGPT"
   },
   "tauri": {
     "allowlist": {
@@ -73,7 +73,7 @@
         "icons/icon.ico"
       ],
       "identifier": "com.yida.chatgpt.next.web",
-      "longDescription": "NextChat is a cross-platform ChatGPT client, including Web/Win/Linux/OSX/PWA.",
+      "longDescription": "IKunAI ChatGPT is a cross-platform ChatGPT client, including Web/Win/Linux/OSX/PWA.",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -82,7 +82,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "NextChat App",
+      "shortDescription": "IKunAI ChatGPT App",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -110,7 +110,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "NextChat",
+        "title": "IKunAI ChatGPT",
         "width": 960,
         "hiddenTitle": true,
         "titleBarStyle": "Overlay"

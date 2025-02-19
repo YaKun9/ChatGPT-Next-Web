@@ -141,9 +141,9 @@ const DEFAULT_ACCESS_STATE = {
   customModels: "",
   defaultModel: "",
   visionModels: "",
-
   // tts config
   edgeTTSVoiceName: "zh-CN-YunxiNeural",
+  recordNumber: "",
 };
 
 export const useAccessStore = createPersistStore(

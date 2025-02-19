@@ -15,6 +15,7 @@ const DANGER_CONFIG = {
   customModels: serverConfig.customModels,
   defaultModel: serverConfig.defaultModel,
   visionModels: serverConfig.visionModels,
+  recordNumber: serverConfig.recordNumber,
 };
 
 declare global {
